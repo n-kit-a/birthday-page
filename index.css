@@ -1,0 +1,442 @@
+@font-face {
+    font-family: "Jua";
+    src: url("fonts/BMJUA_ttf.ttf");
+}
+
+body{
+    margin: 0;
+    overflow: hidden;
+    background-image: url("images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    font-family: "Jua", sans-serif;
+}
+
+#intro,
+#cake-scene,
+#letter {
+    display:none;
+}
+
+button{
+    width: 220px;
+    height: 60px;
+    font-size: 20px;
+    border-radius: 20px;
+    background-color: #7ceccc;
+    
+}
+
+h2{
+    font-size: 30px;
+}
+
+p{
+    font-size: 20px;
+}
+
+
+
+/* start */
+#start-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+#soundCheck{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+
+.title{
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 50px;
+}
+
+
+
+
+
+
+
+/* intro */
+.hbd-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.text{
+    opacity: 0;
+    transform: opacity 1s;
+}
+
+.photo{
+    opacity: 0;
+    transform: opacity 1s;
+}
+
+.show{
+    opacity: 1;
+}
+
+.moving{
+    position: absolute;
+    width:300px;
+    transition: all 0.7s linear;
+}
+
+#introBtn{
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+
+/* cake */
+
+
+
+.cake-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#pangi{
+    position: absolute;
+    width: 400px;
+    bottom: 600px;
+    left: -200px;
+    z-index: 3;
+}
+
+
+#cake{
+    position: absolute;
+    bottom: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+
+    opacity: 0;
+    z-index: 1;
+}
+
+#cake.show{
+    opacity: 1;
+}
+
+#candle-before{
+    position: absolute;
+    bottom: 470px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+
+    opacity: 0;
+    z-index: 2;
+
+    cursor: pointer;
+}
+
+#candle-before.show{
+    opacity: 1;
+}
+
+#candle-after{
+    position: absolute;
+    bottom: 470px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+#candle-after.show{
+    opacity: 1;
+}
+
+.walk-right{
+    animation: walkRight 3s linear forwards;
+}
+
+.flip{
+    transform: translateX(-50%) scaleX(-1);
+}
+
+.walk-left{
+    animation: walkLeft 2s linear forwards;
+}
+
+.drop-cake{
+    animation: dropCake 1s ease-out forwards;
+}
+
+.drop-candle{
+    animation: dropCandle 0.8s ease-out forwards;
+}
+
+.walk-out{
+    animation: walkOut 2s linear forwards;
+}
+
+/* 움직임 담당 */
+@keyframes walkRight{
+    from{
+        left: -200px;
+    }
+    to{
+        left: 110%;
+    }
+}
+
+@keyframes walkLeft{
+    from{
+        left: 110%;
+    }
+    to{
+        left: 50%;
+    }
+}
+
+@keyframes dropCake{
+    from{
+        bottom: 500px;
+    }
+    to{
+        bottom: 200px;
+    }
+}
+
+@keyframes dropCandle{
+    from{
+        bottom: 600px;
+    }
+    to{
+        bottom: 470px
+    }
+}
+
+@keyframes walkOut{
+    from{
+        left: 50%;
+    }
+    to{
+        left: -200px;
+    }
+}
+
+
+body #overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+
+    background:
+    radial-gradient(
+        circle 80px at var(--x) var(--y),
+        transparent 0,
+        rgba(0,0,0,.85) 120px
+    );
+
+    opacity:0;
+    z-index:9999;
+
+    pointer-events:none;
+}
+
+body #overlay.overlay-on{
+    opacity:0.8;
+}
+
+
+/*폭죽*/
+#fireworks{
+    position: fixed;
+    inset:0;
+
+    pointer-events:none;
+    z-index:1000;
+
+    opacity:0;
+}
+
+
+#fireworks.show{
+    opacity:1;
+}
+
+
+/* 폭죽 조각 */
+.spark{
+    position:absolute;
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+    background:white;
+
+    animation: explode 1s ease-out forwards;
+}
+
+
+@keyframes explode{
+
+    from{
+        transform:translate(0,0);
+        opacity:1;
+    }
+
+    to{
+        transform:translate(var(--x), var(--y));
+        opacity:0;
+    }
+
+}
+
+
+#wishText{
+    position:absolute;
+
+    left:50%;
+    bottom: 150px;
+
+    transform:translate(-50%,20px);
+
+
+    opacity:0;
+
+
+    transition:
+        opacity 1s,
+        transform 1s;
+
+    z-index:1001;
+}
+
+
+#wishText.show{
+    opacity:1;
+    transform:translate(-50%,0);
+}
+
+#cakeBtn{
+    opacity:0;
+    pointer-events:none;
+
+    transition:opacity 1s;
+
+    position:absolute;
+    bottom:80px;
+}
+
+
+#cakeBtn.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+
+
+/* ending */
+.scene{
+    display: none;
+
+    width: 100vw;
+    height: 100vh;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.scene.show{
+    display: flex;
+}
+
+/* 돌면서 커지기 */
+.scene.show.spin-text{
+    animation: spinPop 1s ease forwards;
+}
+
+@keyframes spinPop{
+    0%{
+        opacity: 0;
+        transform: scale(0) rotate(-360deg);
+    }
+
+    70%{
+        opacity: 1;
+        transform: scale(1.15) rotate(20deg);
+    }
+
+    100%{
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+
+/* 그냥 커지기 */
+.scene.show.zoom-text{
+    animation: zoomPop 1s ease forwards;
+}
+
+@keyframes zoomPop{
+    0%{
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    70%{
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.scene.show.fade-text{
+    animation: fadeUp 1.5s ease forwards;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAPPY BIRTHDAY</title>
+
+    <link rel="stylesheet" href="index.css"/>
+</head>
+
+
+<body>
+
+    <!-- BGM -->
+    <audio id="bgm" src="music/f(x)_inst.mp3" loop></audio>
+
+
+    <!-- =========================
+         START PAGE
+    ========================== -->
+    <section id="start-page">
+
+        <p>앗, 일단 소리부터 켜주세용~</p>
+        <p>켰는데 안 들린다면 위에 있는 작은 버튼 눌러줘</p>
+
+        <button id="soundCheck" type="button">
+            <img src="images/music.png" width="20">
+        </button>
+
+        <button id="startBtn">
+            start
+        </button>
+
+    </section>
+
+
+
+    <!-- =========================
+         INTRO PAGE
+    ========================== -->
+    <section id="intro">
+
+        <div class="hbd-page">
+
+            <h1 class="title text">
+                HAPPY BIRTHDAY
+            </h1>
+
+            <h2 class="text">
+                2007.07.25
+            </h2>
+
+            <p class="text">
+                우슬아 생일 축하해~~!
+            </p>
+
+
+            <img src="images/intro1.jpg"
+                 class="moving photo"
+                 id="gif1">
+
+            <img src="images/intro2.jpg"
+                 class="moving photo"
+                 id="gif2">
+
+            <img src="images/intro3.jpg"
+                 class="moving photo"
+                 id="gif3">
+
+            <img src="images/intro4.jpg"
+                 class="moving photo"
+                 id="gif4">
+
+
+            <button id="introBtn">
+                Next
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+     CAKE PAGE
+    ========================== -->
+    <section id="cake-scene">
+
+
+        <div id="overlay"></div>
+
+
+        <div class="cake-page">
+
+            <h1 class="title">
+                HAPPY BIRTHDAY
+            </h1>
+
+            <img id="pangi" src="images/pang.jpg">
+
+        </div>
+
+
+
+        <div class="cake-box">
+
+            <img id="cake"
+                 src="images/cake.png"
+                 alt="케이크">
+
+
+            <img id="candle-before"
+                 src="images/candle_before.png"
+                 alt="촛불(켜짐)">
+
+
+            <img id="candle-after"
+                 src="images/candle_after.png"
+                 alt="촛불(꺼짐)">
+
+        </div>
+
+
+
+        <div id="fireworks"></div>
+
+
+
+        <div id="wishText">
+
+            <p>
+                소원 빌었어?
+            </p>
+
+        </div>
+
+
+
+        <div class="cake-page">
+
+            <button id="cakeBtn">
+                Next
+            </button>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+     ENDING PAGE
+    ========================== -->
+    <section id="letter">
+
+
+        <div class="scene spin-text">
+
+            <img src="images/tell.jpg" width="300px">
+
+            <p>
+                헤헤 내가 하고싶은 말이 있어
+            </p>
+
+        </div>
+
+
+
+        <div class="scene zoom-text">
+
+            <img src="images/likeu.jpg" width="300px">
+
+            <p>
+                우하하 너랑 친해져서 너무 좋아~~
+                <br>
+                생일 너무 축하해!!!
+            </p>
+
+        </div>
+
+
+
+        <div class="scene fade-text">
+
+            <p>
+                비록 지금은 내가 서울이 아니라 직접 축하하지 못하지만..
+                <br>
+                곧 엘티에서 만나장 ㅇ.<
+                <br>
+                갖고 싶은 게 있다면 말해줘~~
+            </p>
+
+        </div>
+
+
+
+        <div class="scene fade-text">
+
+            <p>
+                그리고 이거 처음 만드는 거라 ㄹㅈㄷ 어색한데
+                <br>
+                흐린 눈하고 끝까지 봐줘서 고맙디ㅜ.ㅜ
+            </p>
+
+        </div>
+
+
+
+        <div class="scene">
+
+            <p>
+                HAPPY BIRTHDAY
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="start.js"></script>
+    <script src="intro.js"></script>
+    <script src="cake.js"></script>
+    <script src="ending.js"></script>
+
+</body>
+</html>
